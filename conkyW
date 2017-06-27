@@ -1,0 +1,97 @@
+# Conky Google Now style #
+
+# Conky settings #
+background no
+update_interval 1
+double_buffer yes
+no_buffers yes
+
+# Window specifications #
+own_window yes
+own_window_type normal
+# comment next line for normal windows
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+own_window_title
+own_window_colour FFFFFF
+
+minimum_size 220
+
+# Alignment #
+alignment tr
+gap_x 10
+gap_y 40
+
+border_inner_margin 5
+border_outer_margin 0
+
+# Graphics settings #
+draw_shades no
+draw_outline no
+draw_borders no
+draw_graph_borders no
+
+# Text settings #
+use_xft yes
+# xftalpha 0 #
+xftfont Hack:size=10
+
+override_utf8_locale yes
+
+imlib_cache_size 0
+
+# Color scheme #
+default_color 666666
+
+color1 0099CC
+color2 9933CC
+color3 669900
+color4 FF8800
+color5 CC0000
+color6 AAAAAA
+color7 DDDDDD
+
+TEXT
+${color4}USER ${color}${hr 2}
+${color1}User Number:${color3} $user_number
+${color4}MEMORY ${color}${hr 2}
+${color1}RAM: ${color3}$memwithbuffers ${membar 5,100} ${alignr}${color5} $memperc%
+${color1}BUFFERS:${color3}$buffers ${color1}CACHED:${color3}$cached
+${color1}DIRTY: ${color3}$memdirty ${color1}Easy: ${color3}$memeasyfree
+${color1}FREE: ${color3}$memfree ${color1}MAX: ${color3}$memmax
+${color4}NETWORK ${color}${hr 2}
+${color1}IP address: ${color3}$alignr ${addr wlp3s0b1}
+${color1}D/L:${color3}${downspeedf wlp3s0b1} kB/s${alignr}${color1}U/L:${color3}${upspeedf wlp3s0b1} kB/s
+${color}${downspeedgraph wlp3s0b1 26,100 669900 669900 -t} ${offset 15}${color}${upspeedgraph wlp3s0b1 26,100 0099CC 0099CC -t}
+${color1}Down:${color3}${totaldown wlp3s0b1} ${alignr}${color1}Up:${color3}${totalup wlp3s0b1}
+${color1}Inbound: ${color3}${tcp_portmon 1 32767 count}${alignc -36}${color1}Outbound: ${color3}${tcp_portmon 32768 61000 count}${alignr}${color1}Total: ${color5}${tcp_portmon 1 65535 count}
+${color4}Inbound Connection${color} ${hr 2}
+${tcp_portmon 1 65535 lip 0} ${alignr} ${tcp_portmon 1 65535 lport 0}
+${tcp_portmon 1 65535 rip 1} ${alignr} ${tcp_portmon 1 65535 lservice 1}
+${tcp_portmon 1 65535 rip 2} ${alignr} ${tcp_portmon 1 65535 lservice 2}
+${tcp_portmon 1 65535 rip 3} ${alignr} ${tcp_portmon 1 65535 lservice 3}
+${tcp_portmon 1 65535 rip 4} ${alignr} ${tcp_portmon 1 65535 lservice 4}
+${tcp_portmon 1 65535 rip 5} ${alignr} ${tcp_portmon 1 65535 lservice 5}
+${tcp_portmon 1 65535 rip 6} ${alignr} ${tcp_portmon 1 65535 lservice 6}
+${tcp_portmon 1 65535 rip 7} ${alignr} ${tcp_portmon 1 65535 lservice 7}
+${tcp_portmon 1 65535 rip 8} ${alignr} ${tcp_portmon 1 65535 lservice 8}
+${tcp_portmon 1 65535 rip 9} ${alignr} ${tcp_portmon 1 65535 lservice 9}
+${color2}${tcp_portmon 1 65535 rip 10} ${alignr} ${tcp_portmon 1 65535 lservice 10}
+${color4}Outbound Connection${color} ${hr 2}
+${tcp_portmon 1 65535 rip 0} ${alignr} ${tcp_portmon 1 65535 rservice 0}
+${tcp_portmon 1 65535 rip 1} ${alignr} ${tcp_portmon 1 65535 rservice 1}
+${tcp_portmon 1 65535 rip 2} ${alignr} ${tcp_portmon 1 65535 rservice 2}
+${tcp_portmon 1 65535 rip 3} ${alignr} ${tcp_portmon 1 65535 rservice 3}
+${tcp_portmon 1 65535 rip 4} ${alignr} ${tcp_portmon 1 65535 rservice 4}
+${tcp_portmon 1 65535 rip 5} ${alignr} ${tcp_portmon 1 65535 rservice 5}
+${tcp_portmon 1 65535 rip 6} ${alignr} ${tcp_portmon 1 65535 rservice 6}
+${tcp_portmon 1 65535 rip 7} ${alignr} ${tcp_portmon 1 65535 rservice 7}
+${tcp_portmon 1 65535 rip 8} ${alignr} ${tcp_portmon 1 65535 rservice 8}
+${tcp_portmon 1 65535 rip 9} ${alignr} ${tcp_portmon 1 65535 rservice 9}
+${color2}${tcp_portmon 32768 61000 rip 10} ${alignr} ${tcp_portmon 32768 61000 rservice 10}${color}
+${color4}Top Process ${hr 2}
+${color1} Name              PID   CPU%   MEM%
+${color4} ${top name 1} ${top pid 1} ${top cpu 1} ${top mem 1}
+${color3} ${top name 2} ${top pid 2} ${top cpu 2} ${top mem 2}
+${color3} ${top name 3} ${top pid 3} ${top cpu 3} ${top mem 3}
+${color3} ${top name 4} ${top pid 4} ${top cpu 4} ${top mem 4}
+${color2} ${top name 5} ${top pid 5} ${top cpu 5} ${top mem 5}
